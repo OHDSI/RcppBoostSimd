@@ -1,0 +1,16 @@
+Package: RcppBoostSimd
+Type: Package
+Title: 'Rcpp' Integeration for 'boost.simd' Library
+Version: 0.1
+Date: 2016-09-19
+Author@R: c(
+    person("Marc", "Suchard", email = "msuchard@ucla.edu", role = c("aut", "cre")))
+Description: More about what it does (maybe more than one line)
+License: Apache License 2.0
+LazyData: TRUE
+Imports:
+    Rcpp (>= 0.12.6)
+LinkingTo:
+    Rcpp,
+    BH (>= 1.60.0)
+SystemRequirements: C++11
