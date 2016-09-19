@@ -5,13 +5,13 @@
 
 using namespace Rcpp;
 
-// rcpp_hello
-List rcpp_hello();
-RcppExport SEXP RcppBoostSimd_rcpp_hello() {
+// test_boost_simd
+double test_boost_simd();
+RcppExport SEXP RcppBoostSimd_test_boost_simd() {
 BEGIN_RCPP
     Rcpp::RObject __result;
     Rcpp::RNGScope __rngScope;
-    __result = Rcpp::wrap(rcpp_hello());
+    __result = Rcpp::wrap(test_boost_simd());
     return __result;
 END_RCPP
 }

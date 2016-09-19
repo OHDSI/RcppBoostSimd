@@ -21,6 +21,8 @@ if (!grepl("RcppBoostSimd", owd)) {
 dir <- gsub("RcppBoostSimd.*", "RcppBoostSimd", owd)
 setwd(dir)
 
+
+
 # Check out boost.simd
 if (!dir.exists("boost.simd")) {
   system2(git, c("clone", BOOST_SIMD_URL))
@@ -37,3 +39,24 @@ if (!dir.exists(to)) {
   dir.create(to, recursive = TRUE)
 }
 file.copy(from, to, recursive = TRUE)
+
+## Install boost.align
+BOOST_ALIGN <- "https://github.com/glenfe/align"
+COMMIT_ALIGN <- "a55058b433684a7661ca07c05ca905b95e316868"
+
+if (!dir.exists("align")) {
+  system2(git, c("clone", BOOST_ALIGN, "boost.align"))
+}
+setwd("boost.align")
+
+system2(git, c("checkout", COMMIT_ALIGN))
+
+setwd(owd)
+includes <- file.path("align", "include")
+from <- list.files(includes, full.names = TRUE)
+to   <- file.path("inst/include")
+if (!dir.exists(to)) {
+  dir.create(to, recursive = TRUE)
+}
+file.copy(from, to, recursive = TRUE)
+
